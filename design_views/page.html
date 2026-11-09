@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VIEW TITLE</title>
+<!-- 2–4 words, a name not a summary: System Map · Procedure Flows · Time Views · Harness Hierarchy · Agent Boundaries · File Matrix · Run States -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<!-- page-local rules only when styles.css has no class for it; report them so they can be folded into the kit -->
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <div class="top">
+    <h1>View name</h1>
+    <span class="stamp">Drawn from <b>DESIGN.md pass N</b> · YYYY-MM-DD · a snapshot, redrawn by hand per pass</span>
+  </div>
+  <!-- the line nav: one station per page in the run; aria-current="page" on this page's link; remove the views not drawn -->
+  <nav class="linenav" aria-label="views">
+    <a href="index.html">Overview</a>
+    <a href="system.html">System</a>
+    <a href="flow.html">Flow</a>
+    <a href="temporal.html">Temporal</a>
+    <a href="hierarchy.html">Hierarchy</a>
+    <a href="agents.html">Agents</a>
+    <a href="files.html">Files</a>
+    <a href="states.html">States</a>
+  </nav>
+</header>
+
+<div class="page">
+<main class="col">
+
+<!-- one section per figure; the figure pattern, verbatim -->
+<section id="fig-1" aria-labelledby="fig-1-h">
+  <div class="sec-head">
+    <span class="kicker">LEVEL · WHAT THIS IS</span>
+    <h2 id="fig-1-h">The claim, as a sentence</h2>
+    <p class="claim">Two or three sentences a cold reader needs before the picture.</p>
+  </div>
+  <div class="legend" aria-label="legend">
+    <span><i class="a"></i> System A</span>
+    <span><i class="b"></i> System B</span>
+    <span><em></em> code step</span>
+    <span><em class="sq"></em> model step (claude -p)</span>
+    <span><em class="you"></em> you</span>
+    <span><em class="ring"></em> interchange</span>
+  </div>
+  <div class="toolbar" role="group" aria-label="layers">
+    <button type="button" data-layer-toggle data-layer="example" aria-pressed="false">a layer</button>
+    <span class="note">Click a station to see what it hides, reads and writes; the panel lists its upstream and downstream in this figure. Tab moves between stations, Enter selects, Escape clears.</span>
+  </div>
+  <figure>
+    <div class="figwrap">
+    <svg viewBox="0 0 1200 600" data-explore role="img" aria-label="The claim again, for readers who cannot see the drawing." style="min-width: 900px">
+      <defs>
+        <marker id="p1-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>
+      </defs>
+      <!-- routes: <path class="route a" data-edge="a>b" d="…"/> · one segment per hop so the trace works
+           stations: <g class="station a" data-node="<module id>" data-label="…"><circle cx cy r="8"/><text x y text-anchor="middle">name</text><text class="sub" …>the file it writes</text></g>
+             variants: .model (rect 16×16, a model step) · .you (amber circle r=9) · .ring (two circles, interchange) · .file (grey circle r=7)
+             a station whose graph id differs from its module id carries data-ref="<module id>" so the panel still finds it
+           layers: data-layer="example" on any group; hidden when the toolbar button is off
+           steps:  data-step="n" on nodes/edges inside a [data-stepper] container; data-note="…" feeds the toolbar note
+           text:   ≥ 12px at drawn scale; .lbl for hop labels; .line-name.a for line titles; never a literal colour -->
+    </svg>
+    </div>
+    <figcaption><b>The claim, three words.</b> What the shape says, then what is omitted and why.</figcaption>
+  </figure>
+</section>
+
+</main>
+<aside class="panel" data-panel data-empty="Select a station to see what it hides, reads and writes, its decision state, and its neighbours in the figure." aria-live="polite"></aside>
+</div>
+
+<footer>
+  <span>Source: <a href="../../DESIGN.md">system_design/DESIGN.md</a> § System · § Module · § Interface</span>
+  <span>Brief for this run: <a href="BRIEF.md">BRIEF.md</a></span>
+</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* panel text for nodes that are not modules or files: id → HTML string */
+window.VIEW_DETAIL = {
+  "example": "<header><span class='kicker'>kind · owner</span><h2>name</h2><p>what it is, from DESIGN.md</p></header><p class='src'>DESIGN.md § …</p>"
+};
+</script>
+<script src="viewer.js"></script>
+</body>
+</html>
