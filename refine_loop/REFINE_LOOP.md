@@ -109,9 +109,9 @@ Seven agents. Their definitions are complete here. Each reads files, never the c
 
 ```
 You verify one fact. Fact: <the fact as the orchestrator would otherwise assume it>.
-Use web search, then web fetch to open the URL; or run one shell command; or read the file. Read only files under <the directory the command was run from> that this fact concerns.
+Search, fetch and read as many sources as you need to settle this one fact: web search, web fetch on every promising result, shell and read on any file or repository, cloned into a temporary directory, never <task dir>. Do not stop at search snippets.
 Do not survey. Do not report on anything but this fact.
-Return at most three lines: the fact · confirmed / not confirmed / could not verify · the URL opened, the command run or the file read.
+Return at most three lines: the fact · confirmed / not confirmed / could not verify · every URL opened, command run and file read.
 ```
 
 ### Simulated owner
@@ -128,24 +128,24 @@ Return one line per question, numbered as given.
 
 ### Prior-art survey
 - launches: stage 3 step 1, four agents in parallel, one angle each; again in Work when a shall moves
-- model: Sonnet · tools: web search
+- model: Sonnet · tools: web search, web fetch, shell, read
 - returns: at most four systems per agent; the orchestrator merges to at most eight rows and writes the disposition · lands in: the Prior art table of the stage 3 report
 
 ```
 You search for existing implementations of this task. Angle: <same domain | adjacent domain with the same shape | open-source repositories | write-ups by people who built against these requirements>.
-Read <task dir>/refine_process.md and <task dir>/history.md. Nothing else.
-Web search. Open every URL you cite; drop any you cannot open.
+Read <task dir>/refine_process.md and <task dir>/history.md. Of the task's files, nothing else.
+Fetch and read as many sources as you need: web search, web fetch on every promising result, follow links, read docs and READMEs, clone and read code with shell and read in a temporary directory, never <task dir>. Do not stop at search snippets. Open every URL you cite; drop any you cannot open.
 Return at most four systems, each on one line: system · what it does · shalls covered (R-ids) · shalls missed (R-ids) · the owner answer in history.md it contradicts, quoted, or none · URL opened.
 No winner. No recommendation.
 ```
 
 ### CTO and future sight
 - launches: stage 3 step 1, beside the survey
-- model: Opus · tools: web search
+- model: Opus · tools: web search, web fetch, shell, read
 - returns: at most five findings, at most three questions · lands in: Make-or-break in the report; questions into the cycle 3 pool
 
 ```
-Read <task dir>/refine_process.md and <task dir>/history.md. Nothing else. Web search allowed; open every URL you cite.
+Read <task dir>/refine_process.md and <task dir>/history.md. Of the task's files, nothing else. Fetch and read as many sources as you need: web search, web fetch on every promising result, follow links, read docs and READMEs, clone and read code with shell and read in a temporary directory, never <task dir>. Do not stop at search snippets. Open every URL you cite.
 Answer two things. First: what must be true for this task's Deliverable to still be in use one month after it ships, rather than merely delivered. Second: what made comparable efforts in this field fail, and what made them succeed.
 Return at most five findings, one line each with the URL opened.
 Then at most three questions for the owner, each: type · touches (R-ids or Motive) · the question · what changes in the document under each plausible answer. Ask nothing the record or the web answers.
@@ -176,12 +176,12 @@ Return at most three lines: possible / not possible · the command run · what c
 
 ### Alternatives lane
 - launches: Work, before a one-way action
-- model: Sonnet · tools: web search
+- model: Sonnet · tools: web search, web fetch, shell, read
 - returns: at most four candidates, scored, one back-up · lands in: the chat, before the action; the chosen one in the next report
 
 ```
-Decision: <the one-way action>. Read <task dir>/refine_process.md and <task dir>/history.md. Nothing else.
-Web search. Open every URL you cite; drop a candidate without one.
+Decision: <the one-way action>. Read <task dir>/refine_process.md and <task dir>/history.md. Of the task's files, nothing else.
+Fetch and read as many sources as you need: web search, web fetch on every promising result, follow links, read docs and READMEs, clone and read code with shell and read in a temporary directory, never <task dir>. Do not stop at search snippets. Open every URL you cite; drop a candidate without one.
 Return at most four radically different candidates. For each: name · URL opened · against every shall: R-id meets / misses / unknown · the owner answer it fits or contradicts, quoted. Name one back-up. No winner.
 ```
 
