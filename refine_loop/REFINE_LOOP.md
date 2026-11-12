@@ -79,7 +79,7 @@ Owns Shall, Should, Will, Known tension. Gate line `List good enough: <date>`. R
 ### Stage 3 · Research
 No questions to the owner. Input is `refine_process.md` and `history.md`, never the conversation.
 
-1. **Breadth.** Launch in parallel: **prior-art survey**, four Sonnet agents, one angle each; **CTO and future sight**, one agent.
+1. **Breadth.** Launch in parallel: **prior-art survey**, four Opus agents, one angle each; **CTO and future sight**, one agent.
 2. **Align.** Merge the survey to at most eight rows. For each row the orchestrator writes the disposition: which shalls and which quoted answers it aligns with, which it contradicts, adopted in part or rejected with the reason. A contradicting row is an open fork.
 3. **Ask.** **Builder**, cold. **Simulated owner** answers the builder's and the CTO's questions; one answered from the record is cut.
 4. Write the report, show it in the chat, append it to `history.md`: Found · Could not verify · Prior art table · Make-or-break · Open forks · What it proposes to send agents to do, and why.
@@ -116,7 +116,7 @@ Return at most three lines: the fact · confirmed / not confirmed / could not ve
 
 ### Simulated owner
 - launches: cycle 2 from its second round, stage 3 step 3, cycle 3, Work; on a draft question set
-- model: a different model from the session · tools: read
+- model: Opus · tools: read
 - returns: one line per question · lands in: cut questions named in the round opener with their quote; in Work, under Assumptions
 
 ```
@@ -128,7 +128,7 @@ Return one line per question, numbered as given.
 
 ### Prior-art survey
 - launches: stage 3 step 1, four agents in parallel, one angle each; again in Work when a shall moves
-- model: Sonnet · tools: web search, web fetch, shell, read
+- model: Opus · tools: web search, web fetch, shell, read
 - returns: at most four systems per agent; the orchestrator merges to at most eight rows and writes the disposition · lands in: the Prior art table of the stage 3 report
 
 ```
