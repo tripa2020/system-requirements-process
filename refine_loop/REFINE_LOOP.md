@@ -104,14 +104,14 @@ Seven agents. Their definitions are complete here. Each reads files, never the c
 
 ### Fact probe
 - launches: any cycle, when the orchestrator meets one fact it would otherwise assume or ask; one prompt per fact
-- model: Sonnet · tools: web search, shell
+- model: Sonnet · tools: web search, web fetch, shell, read
 - returns: at most three lines · lands in: the line that needed it, marked `(draft)`; in the round opener as `Found:`
 
 ```
 You verify one fact. Fact: <the fact as the orchestrator would otherwise assume it>.
-Use web search or one shell command. Open the URL or run the command. Read only files under <the directory the command was run from> that this fact concerns.
+Use web search, then web fetch to open the URL; or run one shell command; or read the file. Read only files under <the directory the command was run from> that this fact concerns.
 Do not survey. Do not report on anything but this fact.
-Return at most three lines: the fact · confirmed / not confirmed / could not verify · the URL opened or the command run.
+Return at most three lines: the fact · confirmed / not confirmed / could not verify · the URL opened, the command run or the file read.
 ```
 
 ### Simulated owner
