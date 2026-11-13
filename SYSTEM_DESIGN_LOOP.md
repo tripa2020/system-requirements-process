@@ -1,6 +1,6 @@
 # System Design Loop — Template
 
-Oct 31, 2026 · @Alex · draft · first run KiCad 2026-10-31, edits 2026-11-01 to 2026-11-03
+Oct 31, 2026 · @Alex · draft · first run KiCad 2026-10-31, edits 2026-11-01 to 2026-11-08
 
 One thing: turn the accepted `REQUIREMENTS.md` into a design the owner would build from, by drafting it at four levels, asking him questions from roles, and morphing it until he writes `Settled on:`.
 
@@ -224,7 +224,7 @@ Nothing launches on pass 1: the owner sees the first design before any agent run
 ### Design views
 - phase: after the review's clusters have been asked, answered and morphed
 - launches: once per review pass, by the orchestrator, without being asked
-- does: the loop in `_templates/DESIGN_VIEWS.md` with its own agents (illustration research on the first run, one builder per delegated view), from `DESIGN.md` and the pass changelog
+- does: the loop in `_templates/DESIGN_VIEWS.md` with its own agents (illustration research on the first run, one builder per delegated view), from `DESIGN.md` and the pass changelog. Its agents run on Opus, not the session model: the views are a snapshot, not the record (owner, 2026-11-08)
 - returns: `system_design/design_view/pass<n>/` and `design_view/views_round<n>.md` · lands in: nothing in `DESIGN.md`; a mismatch the owner names in the views round becomes a question in the next design round
 
 ## The running design

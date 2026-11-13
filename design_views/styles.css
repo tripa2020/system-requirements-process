@@ -217,3 +217,29 @@ svg [data-node].is-focus rect.box.soft { stroke: var(--ink); stroke-width: 2; }
 .legend i.zone-a { background: var(--a-soft); height: 12px; width: 18px; }
 .legend i.zone-b { background: var(--b-soft); height: 12px; width: 18px; }
 .legend i.zone-amber { background: var(--amber-soft); height: 12px; width: 18px; }
+
+/* ---- folded in after the KiCad pass 5 run (2026-11-08): rules the builders needed page-locally ---- */
+svg marker.op path { fill: var(--op); }                       /* ink arrowheads for operator routes */
+svg .arrow.bar { stroke: var(--b); stroke-width: 3; stroke-dasharray: none; }  /* the bar ending a blocked stub (Agents) */
+svg .box.wall { stroke-width: 4; }                            /* the sub-agent wall (Agents) */
+svg .lane-rule.life { stroke-dasharray: 4 6; }                /* sequence lifelines (Agents) */
+svg .station.ok rect, svg .stub.ok rect { stroke: var(--ok); } /* a terminal OK state or stub (States, Flow) */
+svg .station.dashed rect, svg .arrow.dashed { stroke-dasharray: 5 4; }  /* an inferred state or edge (States) */
+svg .route.spine { stroke-width: 4; }                         /* a flowchart's main spine (Flow) */
+pre.code { white-space: normal; } pre.code .ln { white-space: pre-wrap; }  /* step lines wrap on phones (Flow) */
+.legend em.dia { transform: rotate(45deg); border-radius: 1px; }           /* decision glyph in a legend (Flow) */
+.legend em.rounded { border-radius: 4px; width: 14px; }                    /* state glyph in a legend (States) */
+.matrix td.c { text-align: center; }                           /* adjacency matrix cells (Files) */
+.matrix td.c span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); vertical-align: middle; }
+.matrix td.c span.w { background: var(--ink); }
+.matrix td.c span.s { box-shadow: 0 0 0 3px var(--bg), 0 0 0 4.5px var(--amber); }
+.matrix td.c span.y { border-color: var(--amber); } .matrix td.c span.y.w { background: var(--amber); }
+.matrix tr.hl td, .matrix th.hl { background: var(--bg-2); }
+
+/* ---- folded in after KiCad pass 7 (2026-11-09): builder page-local rules ---- */
+.flow .station rect, .sc .station rect { stroke-width: 2; }
+.legend em.stub { width: 14px; height: 0; border-top: 2px dashed var(--muted); border-radius: 0; }
+.legend em.dot { background: var(--ink); border-color: var(--ink); }
+.legend em.ok { border-color: var(--ok, #2e7d32); }
+.legend i.box { display: inline-block; width: 14px; height: 10px; border: 1px solid var(--ink); background: var(--bg); border-radius: 2px; }
+/* note: text.mono has pointer-events: none; a data-node group whose only label is .mono needs a transparent hit rect to be clickable */

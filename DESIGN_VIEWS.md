@@ -1,6 +1,6 @@
 # Design Views — Template
 
-Nov 2, 2026 · @Alex · draft · first run KiCad pass 4, 2026-11-02 (system_design/design_view/pass4/)
+Nov 2, 2026 · @Alex · draft · first run KiCad pass 4, 2026-11-02 (system_design/design_view/pass4/) · edit 2026-11-08: agents on Opus
 
 One thing: draw the current `DESIGN.md` from several angles, each at its own level, so the owner can see whether the design on paper is the one he imagines. A snapshot per design pass, drawn by hand, never generated. Clarity first, then look, then fidelity; currency gives first. The views are not the record; `DESIGN.md` is.
 
@@ -86,7 +86,7 @@ Fill `data.js` from `DESIGN.md` by the mapping in Appendix B. Every module gets 
 Write `index.html`, `system.html` and, when chosen, `files.html` by hand from `page.html`. The System map fixes the station ids (`data-node`), the line names and the station shapes (code step · model step · you · interchange · file) that every builder reuses. Render once at 1280; fix label collisions; this is the exemplar. Exit: the three pages pass `check.py`; a click on a station opens the panel.
 
 ### 3 Builders
-Launch one builder agent per delegated view, or per pair that shares data (Flow + States), in a single message (Appendix A). Each gets the shared preamble with its placeholders filled, its spec block, the kit paths, the exemplar and the brief. They do not edit shared files; they report needed rules. A builder's own render check catches its overlaps and clipping; the orchestrator's review (4) judges the figure; Verify once (5) is the one batch across the whole set. Exit: each returns the page path, its figures' claims, shared-file needs, and what it could not verify.
+Launch one builder agent per delegated view, or per pair that shares data (Flow + States), in a single message (Appendix A), each on Opus. Each gets the shared preamble with its placeholders filled, its spec block, the kit paths, the exemplar and the brief. They do not edit shared files; they report needed rules. A builder's own render check catches its overlaps and clipping; the orchestrator's review (4) judges the figure; Verify once (5) is the one batch across the whole set. Exit: each returns the page path, its figures' claims, shared-file needs, and what it could not verify.
 
 ### 4 Review
 The orchestrator renders every returned page itself (local server, 1280 full page) and reads the screenshot: collisions, clipping, a claim the figure does not make, a fact not in `DESIGN.md`. A small fix is made in place; a wrong figure goes back to its agent with the screenshot path and one sentence. Fold reported rules into the kit. Exit: every page accepted by eye.
@@ -106,14 +106,14 @@ Each agent serves one phase, writes only its own output, returns to the orchestr
 
 ### Illustration research
 - phase: Brief
-- launches: the first run for a project; again only when the owner reopens the theme or names a grammar the table lacks
+- launches: the first run for a project; again only when the owner reopens the theme or names a grammar the table lacks; on Opus
 - does: with web search, reads `DESIGN.md` § System · Module · Interface · File once, then finds the diagram grammar per view with exemplars, three visual directions that are not the known AI defaults with one recommended, and the tools that draw explorable diagrams in self-contained HTML verified for `file://` and the artifact CSP
 - returns: `design_view/research/illustration_brief.md` · lands in: the brief's extra-view choices; the kit, if a direction changes
 - prompt: Appendix A1
 
 ### View builders
 - phase: Builders
-- launches: every run, one per delegated view or shared-data pair, all in one message
+- launches: every run, one per delegated view or shared-data pair, all in one message, on Opus (`model: opus`); the session model is not needed for a snapshot (owner, 2026-11-08)
 - does: reads the kit, the exemplar, `data.js`, the named `DESIGN.md` sections and the brief; writes one page; verifies it once at 1280 and 390 with the shared browser; clicks one node and one control
 - returns: page path · each figure's claim · page-local rules it needed · what it could not verify · lands in: the pass folder; rules into the kit
 - prompt: Appendix A2 + its spec block in A3
